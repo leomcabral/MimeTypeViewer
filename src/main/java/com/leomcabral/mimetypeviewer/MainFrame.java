@@ -113,9 +113,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_openPathBtnActionPerformed
 
     private void fireDirChanged() {
-        if (this.file == null) {
-            clearTable();
-        } else {
+        clearTable();
+        if (this.file != null) {
             fillTable();
         }
     }
