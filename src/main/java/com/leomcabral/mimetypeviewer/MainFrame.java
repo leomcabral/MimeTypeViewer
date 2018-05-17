@@ -5,20 +5,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.swing.JFileChooser;
-
 import org.jdesktop.observablecollections.ObservableCollections;
 
 /**
  *
- * @author V7JI
+ * @author Leonardo de M. Cabral (leomcabral at gmail.com)
  */
 public class MainFrame extends javax.swing.JFrame {
 
     private File file;
 
-    private List<Archive> files = ObservableCollections.observableList(new ArrayList<>());
+    private List<FileMeta> files = ObservableCollections.observableList(new ArrayList<>());
 
     /**
      * Creates new form MainFrame
@@ -129,16 +127,16 @@ public class MainFrame extends javax.swing.JFrame {
     private void fillTable() {
         File[] listFiles = this.file.listFiles();
         if (listFiles != null && listFiles.length > 0) {
-            List<Archive> l =Arrays.asList(listFiles)
+            List<FileMeta> l = Arrays.asList(listFiles)
                     .stream()
-                    .map(f -> new Archive(f))
+                    .map(FileMeta::new)
                     .sorted((a,b) -> a.getFileName().compareTo(b.getFileName()))
                     .collect(Collectors.toList());
             files.addAll(l);
         }
     }
 
-    public List<Archive> getFiles() {
+    public List<FileMeta> getFiles() {
         return this.files;
     }
 

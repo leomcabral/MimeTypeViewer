@@ -8,15 +8,15 @@ import java.nio.file.Paths;
 
 /**
  *
- * @author V7JI
+ * @author Leonardo de M. Cabral (leomcabral at gmail.com)
  */
-public class Archive {
+public class FileMeta {
 
     private final File file;
     private final String fileName;
     private final String mime;
 
-    public Archive(File file) {
+    public FileMeta(File file) {
         this.file = file;
         this.fileName = this.file.getName();
         Path path = Paths.get(this.file.toURI());
